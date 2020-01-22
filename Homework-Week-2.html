@@ -369,7 +369,56 @@ summary {
 </div>
 
 
-<p>Homework week 2</p>
+<div id="installing-prerequisites" class="section level3">
+<h3>Installing Prerequisites</h3>
+<pre><code>
+install.packages(&quot;nycflights13&quot;)
+
+library(nycflights13)
+library(tidyverse)
+</code></pre>
+</div>
+<div id="section" class="section level3">
+<h3>5.2.4</h3>
+<pre><code>
+Find all flights that: 
+
+# 1) Had an arrival delay of 2 or more hours
+
+long_delay &lt;- filter(flights, arr_delay &gt;= 2)
+
+# 2) Flew to Houston (IAH or HOU)
+
+houston &lt;- filter(flights, dest == &quot;IAH&quot;| dest == &quot;HOU&quot;)
+
+3) How many flights have a missing departure time? 
+
+x &lt;- filter(flights, is.na(flights$dep_time))
+</code></pre>
+</div>
+<div id="section-1" class="section level3">
+<h3>5.3.1</h3>
+<pre><code>
+# 1) How could you use arrange() to sort all missing values to the start? (Hint: use is.na()).
+
+arrange(flights, 
+
+# 2) Sort flights to find the most delayed flights. Find the flights that left earliest.
+
+arrange(flights, desc(dep_delay))
+
+# 3) Sort flights to find the fastest (highest speed) flights.
+
+arrange(flights, desc(distance/air_time))
+
+# 4) Which flights travelled the farthest? Which travelled the shortest?
+
+arrange(flights, desc(distance))
+
+arrange(flights, distance)
+
+</code></pre>
+</div>
 
 
 
